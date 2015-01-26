@@ -1,7 +1,39 @@
-This is the npm package of an uncompressed, unmodified, javascript library.
+This is the browserified version of full calendar.
 
-To get the path to this root directory :
+Installation:
+you need to browserify transform "moment.js" as follows:
+Put this in your package.json
+"browser": {
+    "jquery": "./node_modules/jquery/dist/jquery.min.js",
+    "jquery-ui": "./node_modules/third-party-lib/jquery-ui-1.10.3.min.js",
+    ...
+    "moment": "<path to  moment.js>"
+  },
+  ...
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "moment": "moment",
+    "jquery": {
+      "exports": "$"
+    },
+	"jquery-ui": {
+      "exports": null,
+      "depends": [
+        "jquery:$"
+      ]
+    }
+	...
+	
+	
+	Then in your application just do:
+	var moment = require("moment");
+var $ = require('jquery');
+var jqu = require("jquery-ui");
+var fc=require("fullcalendar-browser");
 
-	require.resolve('xxx-browser');
-
-where xxx is the name of that library.
+$(<element>).fullCalendar({});
+  

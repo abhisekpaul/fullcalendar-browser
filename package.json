@@ -14,7 +14,7 @@
       "url": "https://github.com/jarnokurlin/fullcalendar/blob/master/GPL-LICENSE.txt"
     }
   ],
-  "main": "./index.js",
+  "main": "./fullcalendar/fullcalendar.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/kapouer/fullcalendar-browser.git"
